@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,14 +6,21 @@ namespace NOT_MIT_KAN
 {
     internal class Spline
     {
-        public double a { get; set; }
-        public double b { get; set; }
-        public double c { get; set; }
-        public double d { get; set; }
+        private double a, b, c, d;
+ 
+        public double GetValue(double x)
+        {
+            return a + b * x + c * x * x + d * x * x * x;
+        }
+
+        public double GetDerivative(double x)
+        {
+            return b + 2.0 * c * x + 3.0 * d * x * x;
+        }
 
         public Spline(double A, double B, double C, double D)
         {
-            this.a = A; this.b = B; this.c = C; this.d = D; 
+            this.a = A; this.b = B; this.c = C; this.d = D;
         }
     }
 
@@ -28,15 +35,12 @@ namespace NOT_MIT_KAN
 
         public double GetDerivative(int spline, double relativeDistance)
         {
-            return splines[spline].b + 2.0 * splines[spline].c * relativeDistance +
-                3.0 * splines[spline].d * relativeDistance * relativeDistance;
+            return splines[spline].GetDerivative(relativeDistance);
         }
 
         public double GetValue(int spline, double relativeDistance)
         {
-            return splines[spline].a + splines[spline].b * relativeDistance +
-                splines[spline].c * relativeDistance * relativeDistance +
-                splines[spline].d * relativeDistance * relativeDistance * relativeDistance;
+            return splines[spline].GetValue(relativeDistance);
         }
     }
 
