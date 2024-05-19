@@ -158,15 +158,9 @@ namespace NOT_MIT_KAN
 
             (int k, double relative) = GetSplineAndRelative(x);
 
-            double[] vectorX = new double[_basisList.Count];
-            for (int i = 0; i < vectorX.Length; i++)
+            for (int i = 0; i < _basisList.Count; i++)
             {
-                vectorX[i] = _basisList[i].GetValue(k, relative);
-            }
-
-            for (int i = 0; i < vectorX.Length; i++)
-            {
-                _coefficients[i] += delta * mu * vectorX[i];
+                _coefficients[i] += delta * mu * _basisList[i].GetValue(k, relative);
             }
         }
 
