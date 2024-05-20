@@ -22,9 +22,9 @@ namespace NOT_MIT_KAN
             (List<double[]> input, List<double> target) = f1.GenerateData(1000);
 
             DateTime start = DateTime.Now;
-            KolmogorovModel km = new KolmogorovModel(6, 10, 5, 0.1, 0.05);
+            KolmogorovModel km = new KolmogorovModel(6, 8, 5, 0.05, 0.05);
             km.Initialize(input, target);
-            km.BuildRepresentation(1000);
+            km.BuildRepresentation(600);
             DateTime end = DateTime.Now;
             TimeSpan duration = end - start;
             double time = duration.Minutes * 60.0 + duration.Seconds + duration.Milliseconds / 1000.0;
@@ -47,9 +47,9 @@ namespace NOT_MIT_KAN
             //(List<double[]> input, List<double> target) = f2.GenerateData(3000);
 
             //DateTime start = DateTime.Now;
-            //KolmogorovModel km = new KolmogorovModel(5, 12, 9, 0.2, 0.1);
+            //KolmogorovModel km = new KolmogorovModel(6, 8, 9, 0.05, 0.05);
             //km.Initialize(input, target);
-            //km.BuildRepresentation(1000);
+            //km.BuildRepresentation(300);
             //DateTime end = DateTime.Now;
             //TimeSpan duration = end - start;
             //double time = duration.Minutes * 60.0 + duration.Seconds + duration.Milliseconds / 1000.0;
