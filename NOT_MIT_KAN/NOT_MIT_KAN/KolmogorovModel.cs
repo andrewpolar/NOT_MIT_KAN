@@ -152,7 +152,7 @@ namespace NOT_MIT_KAN
                         if (v[k] > _targetMin && v[k] < _targetMax)
                         {
                             double derrivative = _bigU.GetDerrivative(k, v[k]);
-                            _ulist[k].Update(diff * derrivative / v.Length, _inputs[i], _muLeaves);
+                            _ulist[k].Update(diff * derrivative, _inputs[i], _muLeaves);
                         }
                     }
                     _bigU.Update(diff, v, _muRoot);
