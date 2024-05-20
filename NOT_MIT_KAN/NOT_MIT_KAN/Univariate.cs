@@ -77,7 +77,7 @@ namespace NOT_MIT_KAN
             double v = 0.0;
             for (int i = 0; i < _basisList.Count; i++)
             {
-                v += _basisList[i].GetDerivative(k, relative) * _coefficients[i];
+                v += _basisList[i].GetDerivative(k, relative) * _coefficients[i] / _deltax;
             }
             return v;
         }
